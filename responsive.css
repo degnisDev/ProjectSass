@@ -1,0 +1,34 @@
+/*
+ Configuraciuón de diseño responsivo
+*/
+
+
+/* Aqui se arregla cómo se ve la página en pantallas pequeñas y muy grandes. */
+@media (max-width: 576px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .movie-poster {
+        height: 280px;
+    }
+    
+    /* Esto es para que los botones no se vean tan grandes en móviles */
+    .theme-toggle {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Aqui configuramos la vista en pantallas como tabletas pequeñas */
+@media (min-width: 576px) and (max-width: 768px) {
+    .movie-poster {
+        height: 320px;
+    }
+}
+
+/* Y aqui configuramos la vista en pantallas muy anchas */
+@media (min-width: 1400px) {
+    .container { max-width: 1280px; }
+    .movie-poster { height: 420px; }
+}
