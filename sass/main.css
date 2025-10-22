@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/* Aplicar SASS únicamente al hero de la página: usamos el selector .hero-section
+   para que coincida con el HTML existente y pueda sobreescribir styles.css */
+.hero-section {
+  /* usa la variable de fondo y la fuente que ya definiste */
+  background: var(--hero-bg, linear-gradient(rgba(219, 20, 20, 0.6), rgba(240, 217, 12, 0.6)), url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200"));
+  font-family: "Cinzel";
+  padding: 4rem 1.25rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+  /* ANIDAMIENTO EN SASS H1 Y P DEL HERO */
+  /* Interpolación #1 adaptada: generar reglas que respondan a data-theme="dark"
+     en lugar de requerir que el HTML tenga la clase .dark */
+}
+.hero-section h1 {
+  margin: 0 0 0.5rem;
+  color: #000000;
+  font-size: 3rem;
+  line-height: 1.05;
+}
+.hero-section p {
+  margin: 0 auto;
+  max-width: 60ch;
+  color: #ffffff;
+  font-size: 1.05rem;
+}
+.hero-section:hover { /* ejemplo de anidación con pseudo */
+  transform: translateY(-6px);
+}
+body[data-theme=dark] .hero-section {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+body[data-theme=dark] .hero-section h1 {
+  color: white;
+}
+body[data-theme=dark] .hero-section p {
+  color: #000000;
+}/*# sourceMappingURL=main.css.map */
