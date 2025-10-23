@@ -3,7 +3,7 @@
    para que coincida con el HTML existente y pueda sobreescribir styles.css */
 .hero-section {
   /* usa la variable de fondo y la fuente que ya definiste */
-  background: var(--hero-bg, linear-gradient(rgba(219, 20, 20, 0.6), rgba(240, 217, 12, 0.6)), url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200"));
+  background: var(--hero-bg, linear-gradient(rgb(235, 22, 22), rgb(241, 221, 41)), url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200"));
   font-family: "Cinzel";
   padding: 4rem 1.25rem;
   text-align: center;
