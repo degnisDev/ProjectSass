@@ -5,9 +5,9 @@
 /* Aplicar SASS únicamente al hero de la página: usamos el selector .hero-section
    para que coincida con el HTML existente y pueda sobreescribir styles.css */
 .hero-section {
-  /* usa la variable de fondo y la fuente que ya definiste */
+  /* Aplicamos las variables que definimos previamente */
   background: var(--hero-bg, $hero-bg);
-  font-family: $font-family1;
+  font-family: $font-family;
   padding: 4rem 1.25rem;
   text-align: center;
   transition: transform 0.2s ease;
@@ -27,12 +27,13 @@
     font-size: 1.05rem;
   }
 
-  &:hover { /* ejemplo de anidación con pseudo */
+  &:hover { 
     transform: translateY(-6px);
   }
 
-  /* Interpolación #1 adaptada: generar reglas que respondan a data-theme="dark"
-     en lugar de requerir que el HTML tenga la clase .dark */
+  // INTERPOLACION
+  /* La usamos en este caso para cambiar el color de los textos en el hero, los cuales cambian en funcion del tema */
+
   body[data-theme="#{$theme-name}"] & {
     box-shadow: 0 10px 30px rgba(0,0,0,0.45);
     h1 { color: lighten($secondary-color, 6%); }

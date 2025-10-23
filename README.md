@@ -42,3 +42,11 @@ Notas importantes (comportamiento y "APIs")
     - Dejar comentarios de tus peliculas
     - Cambiar el modo Dark o Light
     - Filtrar por nombre, genero, año
+
+
+- SASS
+
+    - Agregamos sass al proyecto sin reemplazar el css existente
+    - El sass que se agrego solo aplica y modifica el Hero
+    - Si se quiere ver el hero en su version original, basta con comentar la linea que llama a los estilos sass
+    - El sass modifica el colo 
