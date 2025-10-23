@@ -49,4 +49,4 @@ Notas importantes (comportamiento y "APIs")
     - Agregamos sass al proyecto sin reemplazar el css existente
     - El sass que se agrego solo aplica y modifica el Hero
     - Si se quiere ver el hero en su version original, basta con comentar la linea que llama a los estilos sass
-    - El sass modifica el colo 
+    - El sass modifica los colores, el fondo, y cambia en funcion del tema
