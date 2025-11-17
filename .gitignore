@@ -1,0 +1,16 @@
+# Root .gitignore for ProyectoPelis
+# Ignorar node_modules y build de la app Angular creada dentro del repo
+proyecto-pelis-angular/node_modules/
+proyecto-pelis-angular/dist/
+
+# Opcional: ignorar node_modules en raiz si llegase a existir
+node_modules/
+
+# Ignorar archivos temporales y sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
