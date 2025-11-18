@@ -1,0 +1,12 @@
+.movie-detail-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.movie-detail-panel { background: #fff; padding: 1rem; border-radius: 8px; max-width: 900px; width: 95%; }
+.close-btn { position: absolute; right: 1rem; top: 1rem; background: transparent; border: none; font-size: 1.5rem }
+.detail-poster { width: 100%; height: auto }

@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MoviesService, Movie } from '../../services/movies.service';
+import { MovieCard } from '../../components/movie-card/movie-card';
+import { MovieDetail } from '../../components/movie-detail/movie-detail';
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MovieCard, MovieDetail],
   templateUrl: './inicio.html',
   styleUrl: './inicio.scss',
 })
@@ -16,6 +18,7 @@ export class Inicio implements OnInit {
   search = '';
   genre = '';
   year = '';
+  selectedMovie: Movie | null = null;
 
   constructor(private moviesService: MoviesService) {}
 
@@ -45,10 +48,9 @@ export class Inicio implements OnInit {
     this.applyFilters();
   }
 
-  showMovieDetail(id: number) {
-    // For now delegate to legacy modal handled by global script.js
-    // The global script expects a function `showMovieDetail` in window scope; we'll call it if available.
-    const fn = (window as any).showMovieDetail;
-    if (typeof fn === 'function') fn(id);
+  showMovieDetail(movie: Movie) {
+    this.selectedMovie = movie;
   }
+
+  closeDetail() { this.selectedMovie = null }
 }

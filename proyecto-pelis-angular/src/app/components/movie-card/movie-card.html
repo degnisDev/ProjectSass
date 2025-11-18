@@ -1,0 +1,14 @@
+<div class="movie-card" (click)="onSelect()">
+  <div class="movie-poster">
+    <img [src]="movie.poster" [alt]="movie.title">
+    <div class="rating-badge"><i class="fas fa-star"></i> {{ movie.rating }}</div>
+  </div>
+  <div class="movie-info">
+    <h3 class="movie-title">{{ movie.title }}</h3>
+    <div class="movie-meta">
+      <span><i class="far fa-calendar"></i> {{ movie.year }}</span>
+      <span><i class="far fa-clock"></i> {{ movie.duration }}</span>
+    </div>
+    <p class="movie-description">{{ movie.description }}</p>
+  </div>
+</div>

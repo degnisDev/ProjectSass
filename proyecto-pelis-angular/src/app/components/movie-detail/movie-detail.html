@@ -1,0 +1,17 @@
+<div class="movie-detail-backdrop">
+  <div class="movie-detail-panel">
+    <button class="close-btn" (click)="onClose()">×</button>
+    <div *ngIf="movie">
+      <div class="row">
+        <div class="col-md-4">
+          <img [src]="movie.poster" [alt]="movie.title" class="detail-poster">
+        </div>
+        <div class="col-md-8">
+          <h3>{{ movie.title }} <small class="text-muted">{{ movie.year }}</small></h3>
+          <p><strong>Director:</strong> {{ movie.director }}</p>
+          <p>{{ movie.synopsis }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

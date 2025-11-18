@@ -35,23 +35,9 @@
 	<!-- Movies grid -->
 	<div class="row g-4" id="moviesGrid">
 		<div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let movie of filteredMovies; let i = index" [style.animationDelay]="i * 0.1 + 's'">
-			<div class="movie-card" (click)="showMovieDetail(movie.id)">
-				<div class="movie-poster">
-					<img [src]="movie.poster" [alt]="movie.title">
-					<button class="favorite-btn" (click)="toggleFavorite(movie.id); $event.stopPropagation()">
-						<i class="fas fa-heart"></i>
-					</button>
-					<div class="rating-badge"><i class="fas fa-star"></i> {{ movie.rating }}</div>
-				</div>
-				<div class="movie-info">
-					<h3 class="movie-title">{{ movie.title }}</h3>
-					<div class="movie-meta">
-						<span><i class="far fa-calendar"></i> {{ movie.year }}</span>
-						<span><i class="far fa-clock"></i> {{ movie.duration }}</span>
-					</div>
-					<p class="movie-description">{{ movie.description }}</p>
-				</div>
-			</div>
+			<app-movie-card [movie]="movie" (select)="showMovieDetail($event)"></app-movie-card>
 		</div>
 	</div>
+
+	<app-movie-detail *ngIf="selectedMovie" [movie]="selectedMovie" (close)="closeDetail()"></app-movie-detail>
 </div>
