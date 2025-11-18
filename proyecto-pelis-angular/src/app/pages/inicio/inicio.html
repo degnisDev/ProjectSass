@@ -6,12 +6,12 @@
 		<div class="row g-3">
 			<div class="col-12 col-md-6">
 				<div class="search-box">
-					<input type="text" id="searchInput" class="form-control" placeholder="Buscar películas...">
+					<input type="text" class="form-control" placeholder="Buscar películas..." [(ngModel)]="search" (ngModelChange)="onSearch()">
 					<i class="fas fa-search"></i>
 				</div>
 			</div>
 			<div class="col-6 col-md-3">
-				<select id="genreFilter" class="form-select filter-select">
+				<select class="form-select filter-select" [(ngModel)]="genre" (change)="onGenreChange()">
 					<option value="">Todos los géneros</option>
 					<option value="accion">Acción</option>
 					<option value="drama">Drama</option>
@@ -21,7 +21,7 @@
 				</select>
 			</div>
 			<div class="col-6 col-md-3">
-				<select id="yearFilter" class="form-select filter-select">
+				<select class="form-select filter-select" [(ngModel)]="year" (change)="onYearChange()">
 					<option value="">Todos los años</option>
 					<option value="2024">2024</option>
 					<option value="2023">2023</option>
@@ -34,6 +34,24 @@
 
 	<!-- Movies grid -->
 	<div class="row g-4" id="moviesGrid">
-		<!-- Las tarjetas de películas serán renderizadas aquí -->
+		<div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let movie of filteredMovies; let i = index" [style.animationDelay]="i * 0.1 + 's'">
+			<div class="movie-card" (click)="showMovieDetail(movie.id)">
+				<div class="movie-poster">
+					<img [src]="movie.poster" [alt]="movie.title">
+					<button class="favorite-btn" (click)="toggleFavorite(movie.id); $event.stopPropagation()">
+						<i class="fas fa-heart"></i>
+					</button>
+					<div class="rating-badge"><i class="fas fa-star"></i> {{ movie.rating }}</div>
+				</div>
+				<div class="movie-info">
+					<h3 class="movie-title">{{ movie.title }}</h3>
+					<div class="movie-meta">
+						<span><i class="far fa-calendar"></i> {{ movie.year }}</span>
+						<span><i class="far fa-clock"></i> {{ movie.duration }}</span>
+					</div>
+					<p class="movie-description">{{ movie.description }}</p>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
