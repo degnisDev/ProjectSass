@@ -1,1 +1,6 @@
+/* Import legacy SASS from the project root so hero styles are available
+	Relative path: from proyecto-pelis-angular/src/styles.scss -> ../../sass/main.scss */
+
+@import '../../sass/main.scss';
+
 /* You can add global styles to this file, and also import other style files */
