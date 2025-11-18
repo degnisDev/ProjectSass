@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { MoviesService, Movie } from '../../services/movies.service';
 import { MovieCard } from '../../components/movie-card/movie-card';
 import { MovieDetail } from '../../components/movie-detail/movie-detail';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
@@ -20,11 +21,21 @@ export class Inicio implements OnInit {
   year = '';
   selectedMovie: Movie | null = null;
 
-  constructor(private moviesService: MoviesService) {}
+  constructor(private moviesService: MoviesService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.movies = this.moviesService.getAll();
     this.filteredMovies = this.movies.slice();
+
+    this.route.queryParams.subscribe(params => {
+      const view = params['view'];
+      if (view === 'favorites') {
+        const favIds = this.moviesService.getFavorites();
+        this.filteredMovies = favIds.map(id => this.moviesService.getById(id)).filter(Boolean) as Movie[];
+      } else {
+        this.applyFilters();
+      }
+    });
   }
 
   onSearch() {

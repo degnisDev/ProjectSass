@@ -35,7 +35,7 @@
 	<!-- Movies grid -->
 	<div class="row g-4" id="moviesGrid">
 		<div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let movie of filteredMovies; let i = index" [style.animationDelay]="i * 0.1 + 's'">
-			<app-movie-card [movie]="movie" (select)="showMovieDetail($event)"></app-movie-card>
+			<app-movie-card [movie]="movie" (select)="showMovieDetail($event)" (favoriteToggled)="applyFilters()"></app-movie-card>
 		</div>
 	</div>
 
