@@ -1,6 +1,12 @@
 <div class="movie-card" (click)="onSelect()">
   <div class="movie-poster">
     <img [src]="movie.poster" [alt]="movie.title">
+    <button class="favorite-btn" (click)="onToggleFavorite($event)" [class.active]="isFavorite()">
+      <i class="fas fa-heart"></i>
+    </button>
+    <button class="share-btn" (click)="onShare($event)">
+      <i class="fas fa-share-alt"></i>
+    </button>
     <div class="rating-badge"><i class="fas fa-star"></i> {{ movie.rating }}</div>
   </div>
   <div class="movie-info">
