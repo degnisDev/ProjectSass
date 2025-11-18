@@ -1,1 +1,39 @@
-<p>inicio works!</p>
+<app-hero></app-hero>
+
+<div class="container mb-5">
+	<!-- Filters -->
+	<div class="filters-section" id="filtersSection">
+		<div class="row g-3">
+			<div class="col-12 col-md-6">
+				<div class="search-box">
+					<input type="text" id="searchInput" class="form-control" placeholder="Buscar películas...">
+					<i class="fas fa-search"></i>
+				</div>
+			</div>
+			<div class="col-6 col-md-3">
+				<select id="genreFilter" class="form-select filter-select">
+					<option value="">Todos los géneros</option>
+					<option value="accion">Acción</option>
+					<option value="drama">Drama</option>
+					<option value="comedia">Comedia</option>
+					<option value="ciencia-ficcion">Ciencia Ficción</option>
+					<option value="terror">Terror</option>
+				</select>
+			</div>
+			<div class="col-6 col-md-3">
+				<select id="yearFilter" class="form-select filter-select">
+					<option value="">Todos los años</option>
+					<option value="2024">2024</option>
+					<option value="2023">2023</option>
+					<option value="2022">2022</option>
+					<option value="2021">2021</option>
+				</select>
+			</div>
+		</div>
+	</div>
+
+	<!-- Movies grid -->
+	<div class="row g-4" id="moviesGrid">
+		<!-- Las tarjetas de películas serán renderizadas aquí -->
+	</div>
+</div>
