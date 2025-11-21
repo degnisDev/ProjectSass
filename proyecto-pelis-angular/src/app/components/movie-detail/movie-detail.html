@@ -10,7 +10,32 @@
           <h3>{{ movie.title }} <small class="text-muted">{{ movie.year }}</small></h3>
           <p><strong>Director:</strong> {{ movie.director }}</p>
           <p>{{ movie.synopsis }}</p>
+          <div class="mt-3">
+            <h6>Tu calificación:</h6>
+            <div class="star-rating">
+              <i class="fas fa-star" [class.active]="movie.userRating >= 1" (click)="rate(1)"></i>
+              <i class="fas fa-star" [class.active]="movie.userRating >= 2" (click)="rate(2)"></i>
+              <i class="fas fa-star" [class.active]="movie.userRating >= 3" (click)="rate(3)"></i>
+              <i class="fas fa-star" [class.active]="movie.userRating >= 4" (click)="rate(4)"></i>
+              <i class="fas fa-star" [class.active]="movie.userRating >= 5" (click)="rate(5)"></i>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+    <div class="comment-section mt-3" *ngIf="movie">
+      <h5>Comentarios ({{ movie.comments?.length || 0 }})</h5>
+      <div *ngFor="let c of movie.comments">
+        <div class="comment">
+          <div class="comment-author"><i class="fas fa-user-circle"></i> {{ c.author }} <small class="text-muted ms-2">{{ c.date }}</small></div>
+          <div class="comment-text">{{ c.text }}</div>
+        </div>
+      </div>
+
+      <div class="comment-form mt-3">
+        <input class="form-control mb-2" [(ngModel)]="newCommentAuthor" placeholder="Tu nombre" />
+        <textarea class="form-control mb-2" rows="3" [(ngModel)]="newCommentText" placeholder="Escribe tu opinión..."></textarea>
+        <button class="btn btn-primary" (click)="submitComment()">Publicar comentario</button>
       </div>
     </div>
   </div>
